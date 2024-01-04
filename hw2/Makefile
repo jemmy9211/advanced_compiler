@@ -7,18 +7,18 @@ IRFLAGS=-Xclang -disable-O0-optnone -fno-discard-value-names -S -emit-llvm
 OPT=`$(LLVM_CONFIG) --bindir`/opt
 
 .PHONY: all test run clean 
-all: hw1.so test
+all: hw2.so test
 
 test: test1.ll
 
-hw1.so: hw1.cpp
+hw2.so: hw2.cpp
 	$(CXX) -shared -o $@ $< $(CXXFLAGS) $(LDFLAGS)
 
-test1.ll: test1.c
+test.ll: test1.c
 	$(CXX) $(IRFLAGS) -o $@ $<
 
-run: test1.ll hw1.so
-	$(OPT) -disable-output -load-pass-plugin=./hw1.so -passes=hw1 $<
+run: test.ll hw2.so
+	$(OPT) -disable-output -load-pass-plugin=./hw2.so -passes=hw2 $<
 
 clean:
 	rm -f *.o *.ll *.so

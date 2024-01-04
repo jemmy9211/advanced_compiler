@@ -118,9 +118,9 @@ PreservedAnalyses HW1Pass::run(Function &F, FunctionAnalysisManager &FAM) {
   //errs() << "[HW1]: " << F.getName() << '\n';
   int ifinValue;
   int istValue;
-  string sdname[5],ssname[5];
-  int sdindex[5]={0},ssindex[5]={0};
-  int sdmindex[5]={1,1,1,1,1},ssmindex[5]={1,1,1,1,1};
+  string sdname[10],ssname[10];
+  int sdindex[10]={0},ssindex[10]={0};
+  int sdmindex[10]={1,1,1,1,1,1,1,1,1,1},ssmindex[10]={1,1,1,1,1,1,1,1,1,1};
   Value* ibounds;
   for (BasicBlock &BB : F) {
   
